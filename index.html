@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profil Raditya Naufal</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+  <style>
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    body {
+      background: linear-gradient(270deg, #4c51bf, #6b46c1, #ed64a6, #2b6cb0, #d69e2e, #48bb78);
+      background-size: 1200% 1200%;
+      animation: gradientBG 20s ease infinite;
+    }
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(40px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+    @keyframes scaleLoop { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }
+
+    .fade-in-up { animation: fadeInUp 1s ease-out forwards; }
+    .float { animation: float 3s ease-in-out infinite; }
+    .scale-loop { animation: scaleLoop 2s ease-in-out infinite; }
+    .transition-smooth { transition: all 0.3s ease-in-out; }
+    .hover-grow:hover { transform: scale(1.1); transition: transform 0.3s ease-in-out; }
+  </style>
+</head>
+
+<body class="text-white min-h-screen font-sans">
+
+  <main class="flex flex-col items-center justify-center p-8 space-y-12">
+    <!-- Header & Identitas -->
+  <!-- Profil + Info -->
+<div class="text-center fade-in-up">
+  <!-- Foto -->
+  <img 
+    src="assets/Rads.jpg" 
+    alt="Rads" 
+    class="mx-auto w-40 h-40 rounded-full border-4 border-white shadow-2xl float fade-in-up" 
+  />
+
+  <!-- Nama -->
+  <h1 class="text-4xl md:text-5xl font-extrabold mt-4 drop-shadow-lg fade-in-up float">
+    👋 Halo, Saya Raditya Naufal
+  </h1>
+
+  <!-- Deskripsi -->
+  <p class="text-lg text-white/80 mt-1 fade-in-up float">Mahasiswa Sistem Informasi</p>
+  <p class="text-sm text-white/70 mt-1 fade-in-up float">IPK: 3.79 &nbsp;🏡&nbsp; Prambanan, Sleman</p>
+</div>
+
+
+    <!-- Tentang Saya -->
+    <div class="max-w-2xl text-center fade-in-up" data-aos="fade-up">
+      <p class="text-white/80 text-sm leading-relaxed">
+        Saya mahasiswa Sistem Informasi dengan minat pada web development, UI/UX, dan AI. Aktif mengembangkan aplikasi dan suka belajar teknologi baru.
+      </p>
+    </div>
+
+    <!-- Bahasa Pemrograman -->
+    <div class="text-center fade-in-up" data-aos="fade-up">
+      <h2 class="text-2xl font-bold mb-3">Bahasa Pemrograman</h2>
+      <div class="flex flex-wrap justify-center gap-3">
+        <span class="bg-white text-indigo-700 px-5 py-2 rounded-full text-sm font-semibold shadow scale-loop">PHP</span>
+        <span class="bg-white text-blue-700 px-5 py-2 rounded-full text-sm font-semibold shadow scale-loop">C++</span>
+        <span class="bg-white text-pink-600 px-5 py-2 rounded-full text-sm font-semibold shadow scale-loop">Kotlin</span>
+        <span class="bg-white text-yellow-600 px-5 py-2 rounded-full text-sm font-semibold shadow scale-loop">HTML</span>
+        <span class="bg-white text-green-600 px-5 py-2 rounded-full text-sm font-semibold shadow scale-loop">CSS</span>
+        <span class="bg-white text-gray-700 px-5 py-2 rounded-full text-sm font-semibold shadow scale-loop">JavaScript</span>
+      </div>
+    </div>
+
+    <!-- Tools & Framework -->
+    <div class="text-center fade-in-up" data-aos="fade-up">
+      <h2 class="text-2xl font-bold mb-3">Tools & Framework</h2>
+      <div class="flex flex-wrap justify-center gap-3">
+        <span class="bg-white text-gray-700 px-5 py-2 rounded-full text-sm font-semibold shadow scale-loop">Tailwind CSS</span>
+        <span class="bg-white text-green-600 px-5 py-2 rounded-full text-sm font-semibold shadow scale-loop">Laravel</span>
+        <span class="bg-white text-yellow-600 px-5 py-2 rounded-full text-sm font-semibold shadow scale-loop">MySQL</span>
+        <span class="bg-white text-pink-600 px-5 py-2 rounded-full text-sm font-semibold shadow scale-loop">Figma</span>
+        <span class="bg-white text-blue-700 px-5 py-2 rounded-full text-sm font-semibold shadow scale-loop">VS Code</span>
+        <span class="bg-white text-indigo-700 px-5 py-2 rounded-full text-sm font-semibold shadow scale-loop">Android Studio</span>
+      </div>
+    </div>
+
+    <!-- Proyek Unggulan -->
+    <div class="text-center max-w-4xl w-full fade-in-up" data-aos="fade-up">
+      <h2 class="text-2xl font-bold mb-6">Proyek Unggulan</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-white text-gray-800 rounded-xl shadow-lg p-5 hover-grow">
+          <img src="assets/laundry.png" class="rounded-md mb-4" alt="Project 1">
+          <h3 class="text-xl font-bold">Aplikasi Kasir Laravel</h3>
+          <p class="text-sm text-gray-600">Sistem kasir berbasis Laravel dengan fitur laporan dan manajemen produk.</p>
+        </div>
+        <div class="bg-white text-gray-800 rounded-xl shadow-lg p-5 hover-grow">
+          <img src="assets/tokoku.png" class="rounded-md mb-4" alt="Project 2">
+          <h3 class="text-xl font-bold">Website Portofolio</h3>
+          <p class="text-sm text-gray-600">Profil online personal dengan Tailwind dan animasi interaktif.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Kontak & QR -->
+    <div class="text-center fade-in-up" data-aos="fade-up">
+      <h2 class="text-2xl font-bold mb-3">Kontak Interaktif</h2>
+      <div class="flex justify-center gap-6 text-white text-3xl">
+        <a href="mailto:radityanaufal2005@gmail.com" class="hover:scale-125 transition-transform">📧</a>
+        <a href="https://wa.me/6281228450028" target="_blank" class="hover:scale-125 transition-transform">📱</a>
+        <a href="https://linkedin.com/in/radityanaufal" target="_blank" class="hover:scale-125 transition-transform">💼</a>
+        <a href="https://github.com/grvxyz" target="_blank" class="hover:scale-125 transition-transform">🐙</a>
+      </div>
+      <p class="text-white/60 text-sm mt-4">Scan QR untuk simpan kontak:</p>
+      <img src="https://api.qrserver.com/v1/create-qr-code/?data=BEGIN:VCARD%0AVERSION:3.0%0AN:Naufal;Raditya%0AEMAIL:radityanaufal2005@gmail.com%0ATEL:+6281228450028%0AEND:VCARD&size=150x150"
+           alt="QR Code vCard" class="mx-auto mt-2 border-2 border-white rounded-lg">
+    </div>
+
+    <!-- GitHub Statistik -->
+    <div class="text-center fade-in-up" data-aos="fade-up">
+      <h2 class="text-2xl font-bold mb-3">Most Used</h2>
+      <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=grvxyz&layout=compact&theme=radical"
+           alt="Top Languages" class="mx-auto rounded-lg shadow-lg" />
+    </div>
+
+    <!-- CTA -->
+    <div class="fade-in-up" data-aos="zoom-in">
+      <a href="#" onclick="return false;" class="bg-white text-indigo-700 font-bold text-sm px-6 py-3 rounded-full shadow-xl hover:bg-indigo-600 hover:text-white transition-smooth scale-loop">
+        🚀 Buat Web Saya
+      </a>
+    </div>
+  </main>
+
+  <!-- Scroll to Top -->
+  <button onclick="window.scrollTo({ top: 0, behavior: 'smooth' });"
+    class="fixed bottom-6 right-6 bg-white text-indigo-600 px-4 py-2 rounded-full shadow-lg hover:bg-indigo-600 hover:text-white transition-smooth z-50">
+    ⬆️ Atas
+  </button>
+
+  <!-- Footer -->
+  <footer class="mt-16 text-xs text-white/60 text-center fade-in-up">
+    &copy; 2025 Raditya Naufal. All rights reserved.
+  </footer>
+
+  <!-- Script -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      once: true,
+    });
+
+    function toggleTheme() {
+      document.body.classList.toggle("bg-white");
+      document.body.classList.toggle("text-black");
+    }
+  </script>
+</body>
+</html>
+<script>
+    // Smooth scroll to top
+    document.querySelector('button').addEventListener('click', function() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  </script>
