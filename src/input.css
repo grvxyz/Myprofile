@@ -1,3 +1,45 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Animasi Kustom */
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(40px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+@keyframes scaleLoop {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+/* Class tambahan */
+.fade-in-up {
+  animation: fadeInUp 1s ease-out forwards;
+}
+.float {
+  animation: float 3s ease-in-out infinite;
+}
+.scale-loop {
+  animation: scaleLoop 2s ease-in-out infinite;
+}
+.transition-smooth {
+  transition: all 0.3s ease-in-out;
+}
+.hover-grow:hover {
+  transform: scale(1.1);
+  transition: transform 0.3s ease-in-out;
+}
+body {
+  background: linear-gradient(270deg, #4c51bf, #6b46c1, #ed64a6, #2b6cb0, #d69e2e, #48bb78);
+  background-size: 1200% 1200%;
+  animation: gradientBG 20s ease infinite;
+}
