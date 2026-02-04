@@ -30,20 +30,63 @@
     .scale-loop { animation: scaleLoop 2s ease-in-out infinite; }
     .transition-smooth { transition: all 0.3s ease-in-out; }
     .hover-grow:hover { transform: scale(1.1); transition: transform 0.3s ease-in-out; }
+    /* ================= GLASS UI ================= */
+.glass{
+  background: rgba(255,255,255,0.07);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border:1px solid rgba(255,255,255,0.18);
+  box-shadow:0 10px 40px rgba(0,0,0,0.25);
+}
+
+/* hover biar mahal */
+.glass-hover{
+  transition: all .35s ease;
+}
+.glass-hover:hover{
+  transform: translateY(-8px);
+  background: rgba(255,255,255,0.16);
+}
+
+/* ================= CURSOR GLOW ================= */
+.cursor-glow{
+  position: fixed;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  pointer-events:none;
+  z-index:9999;
+  background: radial-gradient(circle,
+        rgba(255,255,255,0.20) 0%,
+        rgba(255,255,255,0.10) 35%,
+        transparent 70%);
+  transform: translate(-50%, -50%);
+  mix-blend-mode: overlay;
+}
+
+/* hide cursor hanya desktop */
+@media(pointer:fine){
+  body{
+    cursor:none;
+  }
+}
+
   </style>
 </head>
 
 <body class="text-white min-h-screen font-sans">
+  <div class="cursor-glow"></div>
 
   <main class="flex flex-col items-center justify-center p-8 space-y-12">
     <!-- Header & Identitas -->
   <!-- Profil + Info -->
 <div class="text-center fade-in-up">
   <!-- Foto -->
-  <img 
-    src="assets/Rads.jpg" 
-    alt="Rads" 
-    class="mx-auto w-40 h-40 rounded-full border-4 border-white shadow-2xl float fade-in-up" 
+  <img
+    src="assets/Rads.jpg"
+    alt="Rads"
+    class="mx-auto w-40 h-40 rounded-full border-4 border-white shadow-2xl float fade-in-up skeleton"
+    onload="this.classList.remove('skeleton')"
   />
 
   <!-- Nama -->
@@ -189,28 +232,34 @@
 
     <!-- Website Laundry -->
     <a href="https://laundrylatte.my.id" target="_blank" class="block h-full hover:no-underline">
-      <div class="bg-white text-gray-800 rounded-xl shadow-lg p-5 hover-grow h-full flex flex-col">
-        <img src="assets/laundry.png" class="rounded-md mb-4" alt="Website Laundry">
-        <h3 class="text-xl font-bold">Website Laundry</h3>
-        <p class="text-sm text-gray-600 mt-auto">Sistem admin untuk pengelolaan laundry</p>
+      <div class="glass glass-hover rounded-xl p-5 hover-grow h-full flex flex-col">
+        <img src="assets/laundry.png" class="w-full h-32 object-cover rounded-md mb-4 skeleton" alt="Website Laundry" onload="this.classList.remove('skeleton')">
+        <div class="flex flex-col flex-grow">
+          <h3 class="text-xl font-bold">Website Laundry</h3>
+          <p class="text-sm text-gray-600 mt-auto">Sistem admin untuk pengelolaan laundry</p>
+        </div>
       </div>
     </a>
 
     <!-- Tokoku2781 -->
     <a href="https://tokoku27812794.my.id" target="_blank" class="block h-full hover:no-underline">
-      <div class="bg-white text-gray-800 rounded-xl shadow-lg p-5 hover-grow h-full flex flex-col">
-        <img src="assets/tokoku1.png" class="rounded-md mb-4" alt="Tokoku2781">
-        <h3 class="text-xl font-bold">Tokoku2781</h3>
-        <p class="text-sm text-gray-600 mt-auto">Website toko seperti Tokopedia dengan fitur checkout dan menggunakan payment gateway.</p>
+      <div class="glass glass-hover rounded-xl p-5 hover-grow h-full flex flex-col">
+        <img src="assets/tokoku1.png" class="w-full h-32 object-cover rounded-md mb-4 skeleton" alt="Tokoku2781" onload="this.classList.remove('skeleton')">
+        <div class="flex flex-col flex-grow">
+          <h3 class="text-xl font-bold">Tokoku2781</h3>
+          <p class="text-sm text-gray-600 mt-auto">Website toko seperti Tokopedia dengan fitur checkout dan menggunakan payment gateway.</p>
+        </div>
       </div>
     </a>
 
     <!-- Heaven Night Club -->
     <a href="https://create.roblox.com/dashboard/creations/experiences/8346198170/overview" target="_blank" class="block h-full hover:no-underline">
-      <div class="bg-white text-gray-800 rounded-xl shadow-lg p-5 hover-grow h-full flex flex-col">
-        <img src="assets/hnc.png" class="rounded-md mb-4" alt="Heaven Night Club">
-        <h3 class="text-xl font-bold">Heaven Night Club</h3>
-        <p class="text-sm text-gray-600 mt-auto">Social Game Roblox</p>
+      <div class="glass glass-hover rounded-xl p-5 hover-grow h-full flex flex-col">
+        <img src="assets/hnc.png" class="w-full h-32 object-cover rounded-md mb-4 skeleton" alt="Heaven Night Club" onload="this.classList.remove('skeleton')">
+        <div class="flex flex-col flex-grow">
+          <h3 class="text-xl font-bold">Heaven Night Club</h3>
+          <p class="text-sm text-gray-600 mt-auto">Social Game Roblox</p>
+        </div>
       </div>
     </a>
 
@@ -281,7 +330,7 @@
 
 <!-- Modal Overlay -->
 <div id="experienceModal" class="fixed inset-0 z-50 hidden items-center justify-center modal-overlay bg-black/60 px-4">
-  <div class="bg-white text-gray-800 w-full max-w-4xl p-6 rounded-xl shadow-xl relative animate-fade-in-up max-h-[90vh] overflow-y-auto">
+  <div class="glass text-white w-full max-w-4xl p-6 rounded-xl shadow-xl relative animate-fade-in-up max-h-[90vh] overflow-y-auto">
     
     <!-- Tombol Close -->
     <button onclick="closeModal()" class="absolute top-3 right-3 text-gray-500 hover:text-red-600 text-2xl font-bold">&times;</button>
@@ -290,58 +339,58 @@
 
     <!-- Pendidikan -->
     <div class="mb-6">
-      <h3 class="text-xl font-semibold text-indigo-800 mb-2">🎓 Pendidikan</h3>
+      <h3 class="text-xl font-semibold text-white mb-2">🎓 Pendidikan</h3>
       <table class="w-full text-sm border-separate space-y-2">
         <tr>
-          <td class="font-semibold">Universitas Amikom Yogyakarta</td>
-          <td class="text-right text-gray-600">2023 – sekarang</td>
+          <td class="font-semibold text-white">Universitas Amikom Yogyakarta</td>
+          <td class="text-right text-white/80">2023 – sekarang</td>
         </tr>
         <tr>
-          <td colspan="2" class="text-gray-700">Program Studi Sistem Informasi, IP: 3.85 / 4.00</td>
+          <td colspan="2" class="text-white/80">Program Studi Sistem Informasi, IP: 3.85 / 4.00</td>
         </tr>
         <tr>
-          <td class="font-semibold">SMAN 1 Prambanan</td>
-          <td class="text-right text-gray-600">2020 – 2023</td>
+          <td class="font-semibold text-white">SMAN 1 Prambanan</td>
+          <td class="text-right text-white/80">2020 – 2023</td>
         </tr>
         <tr>
-          <td class="font-semibold">Muhammadiyah Boarding School Yogyakarta</td>
-          <td class="text-right text-gray-600">2017 – 2020</td>
+          <td class="font-semibold text-white">Muhammadiyah Boarding School Yogyakarta</td>
+          <td class="text-right text-white/80">2017 – 2020</td>
         </tr>
       </table>
     </div>
 
     <!-- Pengalaman Organisasi -->
     <div class="mb-6">
-      <h3 class="text-xl font-semibold text-indigo-800 mb-2">👥 Pengalaman Organisasi</h3>
+      <h3 class="text-xl font-semibold text-white mb-2">👥 Pengalaman Organisasi</h3>
       <div class="space-y-4">
-        <div class="bg-indigo-50 p-4 rounded-lg shadow">
-          <h4 class="font-semibold text-indigo-800">HIMASI Amikom</h4>
-          <p class="text-sm text-gray-700">Staff Divisi Eksternal <span class="block text-xs text-gray-500">2024 – Sekarang</span></p>
-          <p class="text-sm mt-1">Bertanggung jawab atas hubungan komunikasi dengan pihak luar kampus serta pengelolaan konten harian/event dan penjadwalan unggahan konten media sosial (Instagram, TikTok).</p>
+        <div class="glass p-4 rounded-lg">
+          <h4 class="font-semibold text-white">HIMASI Amikom</h4>
+          <p class="text-sm text-white/80">Staff Divisi Eksternal <span class="block text-xs text-white/60">2024 – Sekarang</span></p>
+          <p class="text-sm mt-1 text-white/80">Bertanggung jawab atas hubungan komunikasi dengan pihak luar kampus serta pengelolaan konten harian/event dan penjadwalan unggahan konten media sosial (Instagram, TikTok).</p>
         </div>
 
-        <div class="bg-indigo-50 p-4 rounded-lg shadow">
-          <h4 class="font-semibold text-indigo-800">BEM KM Amikom</h4>
-          <p class="text-sm text-gray-700">Dirjen Web <span class="block text-xs text-gray-500">2025</span></p>
-          <p class="text-sm mt-1">Bertanggung jawab dalam manajemen konten dan pengembangan website resmi berbasis PHP, termasuk pemeliharaan sistem dan optimalisasi fitur.</p>
+        <div class="glass p-4 rounded-lg">
+          <h4 class="font-semibold text-white">BEM KM Amikom</h4>
+          <p class="text-sm text-white/80">Dirjen Web <span class="block text-xs text-white/60">2025</span></p>
+          <p class="text-sm mt-1 text-white/80">Bertanggung jawab dalam manajemen konten dan pengembangan website resmi berbasis PHP, termasuk pemeliharaan sistem dan optimalisasi fitur.</p>
         </div>
       </div>
     </div>
 
     <!-- Pengalaman Kerja -->
     <div class="mb-4">
-      <h3 class="text-xl font-semibold text-indigo-800 mb-2">💼 Pengalaman Kerja</h3>
+      <h3 class="text-xl font-semibold text-white mb-2">💼 Pengalaman Kerja</h3>
       <div class="space-y-4">
-        <div class="bg-indigo-50 p-4 rounded-lg shadow">
-          <h4 class="font-semibold text-indigo-800">Manajemen Toko</h4>
-          <p class="text-sm text-gray-700">Toko Keluarga <span class="block text-xs text-gray-500">2020 – 2022</span></p>
-          <p class="text-sm mt-1">Mengelola operasional toko secara menyeluruh, termasuk pelayanan pelanggan, transaksi dengan supplier, pengaturan gaji karyawan, dan pemantauan keuangan. Menjamin efisiensi serta adaptasi toko di masa pandemi dengan penerapan protokol kesehatan.</p>
+        <div class="glass p-4 rounded-lg">
+          <h4 class="font-semibold text-white">Manajemen Toko</h4>
+          <p class="text-sm text-white/80">Toko Keluarga <span class="block text-xs text-white/60">2020 – 2022</span></p>
+          <p class="text-sm mt-1 text-white/80">Mengelola operasional toko secara menyeluruh, termasuk pelayanan pelanggan, transaksi dengan supplier, pengaturan gaji karyawan, dan pemantauan keuangan. Menjamin efisiensi serta adaptasi toko di masa pandemi dengan penerapan protokol kesehatan.</p>
         </div>
 
-        <div class="bg-indigo-50 p-4 rounded-lg shadow">
-          <h4 class="font-semibold text-indigo-800">Content Creator</h4>
-          <p class="text-sm text-gray-700">Kolaborasi Promosi <span class="block text-xs text-gray-500">2024 – Sekarang</span></p>
-          <p class="text-sm mt-1">Membuat konten kolaborasi berdasarkan permintaan client untuk mempromosikan tempat atau menu.</p>
+        <div class="glass p-4 rounded-lg">
+          <h4 class="font-semibold text-white">Content Creator</h4>
+          <p class="text-sm text-white/80">Kolaborasi Promosi <span class="block text-xs text-white/60">2024 – Sekarang</span></p>
+          <p class="text-sm mt-1 text-white/80">Membuat konten kolaborasi berdasarkan permintaan client untuk mempromosikan tempat atau menu.</p>
         </div>
       </div>
     </div>
@@ -376,10 +425,7 @@
       document.body.classList.toggle("bg-white");
       document.body.classList.toggle("text-black");
     }
-  </script>
-</body>
-</html>
-  <script>
+
     function openModal() {
       const modal = document.getElementById("experienceModal");
       modal.classList.remove("hidden");
@@ -393,5 +439,16 @@
       modal.classList.remove("flex");
       document.body.classList.remove("overflow-hidden");
     }
+    const glow = document.querySelector(".cursor-glow");
+
+document.addEventListener("mousemove",(e)=>{
+  glow.style.left = e.clientX + "px";
+  glow.style.top = e.clientY + "px";
+});
+
   </script>
+  </div>
+
+</body>
+</html>
   
